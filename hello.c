@@ -1,3 +1,0 @@
-hello
-hello intel
-byebye 
