@@ -22,6 +22,32 @@
 ## 담당 역할
 - 하드웨어 제작 & 설계
 - 데이터 셋 Annotation
+- 하드웨어 동작 흐름 : 라즈베리파이로부터 피부 상태(수분@탄력@미백@모공)의 값을 수신 -> Uart로 수신한 값을 파싱[예) 1@0@1@1 -> arrbuff[]={1,0,1,1}] -> 파싱 값에 따라 각 서보모터를 순차적으로 동작 및 LED 점등 기초 화장품 추천 디스펜서
+  
+## 프로젝트 개요
+> AI 기반으로 카메라를 이용해 사용자 얼굴의 피부 상태를 분석 후, 개인 맞춤형 기초 화장품을 자동으로 디스펜싱하는 시스템
+## 시스템 기능
+- 🎥 AI 기반 피부 분석: Intel Geti SDK + PyTorch를 활용한 5개 얼굴 영역별 피부 상태 분석<br>
+- 💧 다중 피부 지표 측정: 수분, 탄력, 색소침착, 모공 상태 정량화<br>
+- 🧴 스마트 디스펜싱: 분석 결과 기반 개인 맞춤형 화장품 자동 분배<br>
+- 📊 사용자 프로필 관리: SQLite 기반 분석 이력 및 개인 데이터 저장<br>
+- 🔄 실시간 처리: Qt GUI를 통한 실시간 카메라 캡처 및 분석 결과 확인<br>
+
+## 활용 데이터 셋
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/eac940ce-d149-4ebf-8fef-1203aed528ab" /><br>
+-  출처: [AI-Hub 한국인 피부상태 측정 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%ED%95%9C%EA%B5%AD%EC%9D%B8&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&srchDataRealmCode=REALM001&aihubDataSe=data&dataSetSn=71645)
+  
+## 시스템 구성도
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/1d4378e2-1004-4739-8ceb-69b8a419061f" />
+
+## 시스템 흐름도
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/78a9f8e4-9106-40a3-8c21-242f7511aab5" />
+
+## 담당 역할
+- 하드웨어 제작 & 설계
+- 데이터 셋 Annotation
+- 하드웨어 동작 흐름 : 라즈베리파이로부터 피부 상태(수분@탄력@미백@모공)의 값을 수신 ➡️ Uart로 수신한 값을 파싱[예) 수신 값: 1@0@1@1, 파싱 값: arrbuff[]={1,0,1,1}] ➡️ 파싱 값에 따라 각 서보모터를 순차적으로 동작(화장품 제공) 및 LED 점등 ➡️ 화장품 제공 완료 시, 라즈베리파이에 성공 이벤트 전송 
+  
 ## 사용 기술
 | 구분 | 기술&장비|
 |---|---|
